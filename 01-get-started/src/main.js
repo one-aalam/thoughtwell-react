@@ -1,6 +1,9 @@
+import logoSvg from './favicon.svg'
+import './styles.css'
+
 const App = () => {
     return React.createElement('div', {},
-        React.createElement('img', { src: './favicon.svg', alt: 'logo', width: 60 }),
+        React.createElement('img', { src: logoSvg , alt: 'logo', width: 60 }),
         React.createElement('h1', {},
             React.createElement('span', {}, 'thought'),
             React.createElement('u', { style: { color: 'indigo'}}, 'well')
