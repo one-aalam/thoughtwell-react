@@ -1,0 +1,28 @@
+{
+  "name": "thoughtwell-react",
+  "version": "1.0.0",
+  "description": "where people connnect on what they're up to...",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/one-aalam/react-course-project.git"
+  },
+  "keywords": [
+    "react",
+    "frontend"
+  ],
+  "author": "Aftab Alam",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/one-aalam/react-course-project/issues"
+  },
+  "homepage": "https://github.com/one-aalam/react-course-project#readme",
+  "devDependencies": {
+    "vite": "^2.8.2"
+  }
+}
