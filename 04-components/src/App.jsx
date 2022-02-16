@@ -18,7 +18,7 @@ const UserListTitle = () =>
 const App = () => (
     <div className="container">
         <Header/>
-        <UserList users={USERS}><UserListTitle/></UserList>
+        <UserList users={USERS} onAction={(isFollowed, user) => console.log(isFollowed, user)}><UserListTitle/></UserList>
     </div>
 )
 

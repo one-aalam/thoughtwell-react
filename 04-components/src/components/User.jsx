@@ -1,6 +1,6 @@
 import FollowButton from "./FollowButton"
 
-export default function User({ user: { name, handle, isFollowed } }) {
+export default function User({ user: { name, handle, isFollowed }, onAction }) {
     return (
         <div className="user-cell">
             <img className="user-cell__avatar" src={`https://avatars.dicebear.com/api/open-peeps/${handle}.svg`} alt={name} />
@@ -13,7 +13,7 @@ export default function User({ user: { name, handle, isFollowed } }) {
                     <small className="user-cell__status">following ✓</small> :
                     ''
                 } */}
-                <FollowButton user={{ name, handle, isFollowed }} />
+                <FollowButton user={{ name, handle, isFollowed }} onClick={onAction} />
             </div>
         </div>
     )

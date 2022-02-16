@@ -6,7 +6,7 @@ export default function UserList(props) {
             <h4 className="user-list__title">{props.children}</h4>
             {
                 props.users.map(
-                    user => <User key={user.handle} user={user} />
+                    user => <User key={user.handle} user={user} onAction={props.onAction} />
                 )
             }
         </div>
