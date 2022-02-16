@@ -1,8 +1,12 @@
-import { useState, createRef } from "react"
+import { useState, createRef, useEffect } from "react"
 
 export default function UserSearchForm({ onSearch = () => {} }) {
     const [ query, setQuery ] = useState("")
     const searchInputRef = createRef()
+
+    useEffect(() => {
+        searchInputRef.current.focus()
+    })
 
     return (
         <form name="user-search" className="user-search" onSubmit={(e) => {
