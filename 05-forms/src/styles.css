@@ -127,3 +127,24 @@ button:disabled {
     background-color: rgba(75, 0, 130, 0.8);
     color: rgb(255, 255, 255);
 }
+
+
+.user-search input {
+    padding: 0.5rem 0.8rem;
+    background-color: rgba(0, 0, 0, 0.05);
+    color: rgba(0, 0, 0, 0.8);
+    border-radius: 9999px;
+    font-size: 0.9rem;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}

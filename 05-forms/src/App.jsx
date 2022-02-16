@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Header from './components/Header'
 import UserList from './components/UserList'
+import UserSearchForm from './components/UserSearchForm'
 
 const USERS = [
     { name: 'Amar', handle: 'amar', isFollowed: false },
@@ -31,6 +32,7 @@ const App = () => {
     return (
         <div className="container">
             <Header/>
+            <UserSearchForm/>
             <UserList users={USERS} onAction={handleFollowAction}>
                 <strong className={`follow-stats ${followedUsers.length ? 'follow-stats--followed': ''}`}>
                     Following: { followedUsers.length ? `${followedUsers.length} person(s)` : 'nobody' }
