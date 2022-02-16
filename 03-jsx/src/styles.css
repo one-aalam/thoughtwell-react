@@ -1,0 +1,104 @@
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+}
+
+.container {
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    gap: 1rem;
+    padding: 2rem 0rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 2rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2rem;
+}
+
+h6 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+/* User */
+
+.user-list {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    gap: 1rem;
+    width: auto;
+    padding: 1rem;
+}
+
+.user-list__title {
+    text-transform: uppercase;
+}
+
+.user-cell {
+        width: 24rem;
+        padding: 0.5rem 1rem;
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        border-radius: 0.5rem;
+        background-color: rgba(0, 0, 0, .02);
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, .2);
+}
+
+.user-cell__avatar {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 9999px;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.user-cell__info {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0%;
+    place-content: center;
+    text-align: left;
+}
+
+.user-cell__actions {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+}
+
+button {
+    padding: 0.5rem 2rem;
+    background-color: rgba(0, 0, 0, .9);
+    color: rgb(255, 255, 255);
+    border-radius: 9999px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 1);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, .8);
+}
