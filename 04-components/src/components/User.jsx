@@ -1,10 +1,4 @@
-const FollowButton = ({ user: { name, handle, isFollowed = true } }) => {
-    return (
-        <button className="follow-btn" onClick={() => alert(`Mr. ${name} is ${isFollowed ? 'unfollowed' : 'followed' } now!`) }>
-            { isFollowed ? `unfollow` : `follow` }
-        </button>
-    )
-}
+import FollowButton from "./FollowButton"
 
 export default function User({ user: { name, handle, isFollowed } }) {
     return (
@@ -15,10 +9,11 @@ export default function User({ user: { name, handle, isFollowed } }) {
                 <h6>{`@${handle}`}</h6>
             </div>
             <div className="user-cell__actions">
-                { isFollowed ?
+                {/* { isFollowed ?
                     <small className="user-cell__status">following ✓</small> :
-                    <FollowButton user={{ name, handle, isFollowed }} />
-                }
+                    ''
+                } */}
+                <FollowButton user={{ name, handle, isFollowed }} />
             </div>
         </div>
     )
