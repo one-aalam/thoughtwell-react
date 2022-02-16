@@ -113,3 +113,17 @@ button:hover:enabled {
 button:disabled {
     background-color: rgba(0, 0, 0, .3);
 }
+
+.follow-stats {
+    display: block;
+    padding: 0.5rem 0.8rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.4);
+    border-radius: 9999px;
+    font-size: 0.8rem;
+}
+
+.follow-stats--followed {
+    background-color: rgba(75, 0, 130, 0.8);
+    color: rgb(255, 255, 255);
+}
