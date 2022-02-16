@@ -6,7 +6,7 @@ export default function UserList({ users }) {
             <h4 className="user-list__title">Who to follow</h4>
             {
                 users.map(
-                    user => <User key={user.handle} name={user.name} handle={user.handle} isFollowed={user.isFollowed} />
+                    user => <User key={user.handle} user={user} />
                 )
             }
         </div>

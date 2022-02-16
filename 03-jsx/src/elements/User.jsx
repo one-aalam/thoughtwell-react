@@ -1,4 +1,4 @@
-const FollowButton = ({ name, isFollowed = false }) => {
+const FollowButton = ({ user: { name, handle, isFollowed = true } }) => {
     return (
         <button className="follow-btn" onClick={() => alert(`Mr. ${name} is ${isFollowed ? 'unfollowed' : 'followed' } now!`) }>
             { isFollowed ? `unfollow` : `follow` }
@@ -6,7 +6,7 @@ const FollowButton = ({ name, isFollowed = false }) => {
     )
 }
 
-export default function User({ name, handle, isFollowed }) {
+export default function User({ user: { name, handle, isFollowed } }) {
     return (
         <div className="user-cell">
             <img className="user-cell__avatar" src={`https://avatars.dicebear.com/api/open-peeps/${handle}.svg`} alt={name} />
@@ -17,7 +17,7 @@ export default function User({ name, handle, isFollowed }) {
             <div className="user-cell__actions">
                 { isFollowed ?
                     <small className="user-cell__status">following ✓</small> :
-                    <FollowButton name={name} isFollowed={isFollowed} />
+                    <FollowButton user={{ name, handle, isFollowed }} />
                 }
             </div>
         </div>
