@@ -16,7 +16,7 @@ export default function User({ name, handle }) {
         React.createElement("div", {
             className: "user-cell__actions"
         },
-            React.createElement("button", null, "follow")
+            React.createElement("button", { onClick: () => alert(`Mr. ${name} is followed now!`) }, "follow")
         )
     );
 }
