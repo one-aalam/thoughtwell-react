@@ -3,6 +3,7 @@ import Header from './components/Header'
 import UserList from './components/UserList'
 import UserSearchForm from './components/UserSearchForm'
 import useTitleStats from './hooks/useTitleStats'
+import useBrowserState from './hooks/useBrowserState'
 
 const USERS = [
     { name: 'Amar', handle: 'amar', isFollowed: false },
@@ -18,7 +19,7 @@ const UserListTitle = () =>
     </React.Fragment>
 
 const App = () => {
-    const [ followedUsers, setFollowedUsers ] = useState([])
+    const [ followedUsers, setFollowedUsers ] = useBrowserState(`followers`, [])
     const [ userQuery, setUserQuery ] = useState()
 
     useTitleStats(followedUsers)
