@@ -15,7 +15,10 @@ export default function User({ name, handle, isFollowed }) {
                 <h6>{`@${handle}`}</h6>
             </div>
             <div className="user-cell__actions">
-                <FollowButton name={name} isFollowed={isFollowed} />
+                { isFollowed ?
+                    <small className="user-cell__status">following ✓</small> :
+                    <FollowButton name={name} isFollowed={isFollowed} />
+                }
             </div>
         </div>
     )
