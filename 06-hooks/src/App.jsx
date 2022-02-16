@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Header from './components/Header'
 import UserList from './components/UserList'
 import UserSearchForm from './components/UserSearchForm'
+import useTitleStats from './hooks/useTitleStats'
 
 const USERS = [
     { name: 'Amar', handle: 'amar', isFollowed: false },
@@ -19,15 +20,8 @@ const UserListTitle = () =>
 const App = () => {
     const [ followedUsers, setFollowedUsers ] = useState([])
     const [ userQuery, setUserQuery ] = useState()
-    const [ pageTitle, setPageTitle ] = useState()
 
-    useEffect(() => {
-        setPageTitle(document.title)
-    }, [])
-
-    useEffect(() => {
-        document.title = followedUsers.length ? `Thoughtwell | Following ${followedUsers.length} person(s)` : pageTitle
-    }, [ followedUsers, pageTitle ])
+    useTitleStats(followedUsers)
 
     const handleFollowAction = (isFollowed, user ) => {
         setFollowedUsers(users => {
