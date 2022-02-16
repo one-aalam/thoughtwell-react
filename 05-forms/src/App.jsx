@@ -18,6 +18,7 @@ const UserListTitle = () =>
 
 const App = () => {
     const [ followedUsers, setFollowedUsers ] = useState([])
+    const [ userQuery, setUserQuery ] = useState()
 
     const handleFollowAction = (isFollowed, user ) => {
         setFollowedUsers(users => {
@@ -29,11 +30,17 @@ const App = () => {
         })
     }
 
+    const handleSearch = (query) => setUserQuery(query)
+
     return (
         <div className="container">
             <Header/>
-            <UserSearchForm/>
-            <UserList users={USERS} onAction={handleFollowAction}>
+            <UserSearchForm onSearch={handleSearch}/>
+            <UserList users={
+                userQuery ?
+                    USERS.filter(user => user.name.toLowerCase().indexOf(userQuery) !== -1 ) :
+                    USERS
+                } onAction={handleFollowAction}>
                 <strong className={`follow-stats ${followedUsers.length ? 'follow-stats--followed': ''}`}>
                     Following: { followedUsers.length ? `${followedUsers.length} person(s)` : 'nobody' }
                 </strong>
