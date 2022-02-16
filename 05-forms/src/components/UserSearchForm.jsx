@@ -1,6 +1,7 @@
 import { useState, createRef } from "react"
 
 export default function UserSearchForm({ onSearch = () => {} }) {
+    const [ query, setQuery ] = useState("")
     const searchInputRef = createRef()
 
     return (
@@ -9,7 +10,10 @@ export default function UserSearchForm({ onSearch = () => {} }) {
             onSearch(searchInputRef.current.value)
         }}>
             <label className="sr-only" htmlFor="q">Search</label>
-            <input ref={searchInputRef} type="text" name="q" id="q" placeholder="Search a user..." autoComplete="off" />
+            <input ref={searchInputRef} type="text" name="q" id="q" value={query} onChange={(e) => {
+                setQuery(e.target.value)
+                onSearch(e.target.value)
+            }} placeholder="Search a user..." autoComplete="off" />
             <button type="submit">search</button>
         </form>
     )
