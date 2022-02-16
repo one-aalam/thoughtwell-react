@@ -10,7 +10,7 @@ const USERS = [
 const App = () => (
     <div className="container">
         <Header/>
-        <UserList users={USERS} />
+        <UserList users={USERS}>Wanna be <strong>friends</strong> with?</UserList>
     </div>
 )
 
