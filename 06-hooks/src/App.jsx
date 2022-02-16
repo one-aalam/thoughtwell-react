@@ -19,10 +19,15 @@ const UserListTitle = () =>
 const App = () => {
     const [ followedUsers, setFollowedUsers ] = useState([])
     const [ userQuery, setUserQuery ] = useState()
+    const [ pageTitle, setPageTitle ] = useState()
 
     useEffect(() => {
-        document.title = followedUsers.length ? `Thoughtwell | Following ${followedUsers.length} person(s)` : `Thoughtwell | Following nobody`
-    }, [ followedUsers ])
+        setPageTitle(document.title)
+    }, [])
+
+    useEffect(() => {
+        document.title = followedUsers.length ? `Thoughtwell | Following ${followedUsers.length} person(s)` : pageTitle
+    }, [ followedUsers, pageTitle ])
 
     const handleFollowAction = (isFollowed, user ) => {
         setFollowedUsers(users => {
