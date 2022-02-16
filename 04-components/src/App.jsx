@@ -18,19 +18,23 @@ const UserListTitle = () =>
 const App = () => {
     const [ followedUsers, setFollowedUsers ] = useState([])
 
+    const handleFollowAction = (isFollowed, user ) => {
+        setFollowedUsers(users => {
+            if(isFollowed) {
+                return [ ...users, user ]
+            } else {
+                return users.filter(_user => _user.handle !== user.handle )
+            }
+        })
+    }
+
     return (
         <div className="container">
             <Header/>
-            <UserList users={USERS} onAction={(isFollowed, user ) => {
-                setFollowedUsers(users => {
-                    if(isFollowed) {
-                        return [ ...users, user ]
-                    } else {
-                        return users.filter(_user => _user.handle !== user.handle )
-                    }
-                })
-            }}>
-                <strong className={`follow-stats ${followedUsers.length ? 'follow-stats--followed': ''}`}>Following: { followedUsers.length ? `${followedUsers.length} person(s)` : 'nobody' }</strong>
+            <UserList users={USERS} onAction={handleFollowAction}>
+                <strong className={`follow-stats ${followedUsers.length ? 'follow-stats--followed': ''}`}>
+                    Following: { followedUsers.length ? `${followedUsers.length} person(s)` : 'nobody' }
+                </strong>
                 <br/>
                 <UserListTitle/>
             </UserList>
