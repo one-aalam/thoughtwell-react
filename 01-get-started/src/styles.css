@@ -6,3 +6,16 @@
     color: #2c3e50;
     margin-top: 60px;
 }
+
+.container {
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    gap: 1rem;
+    padding: 2rem 0rem;
+}
