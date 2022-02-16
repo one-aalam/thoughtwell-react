@@ -5,8 +5,10 @@ export default function UserList() {
         className: "user-list"
       },
       React.createElement("h4", { className: "user-list__title"}, 'Who to follow'),
-      React.createElement(User, { name: 'Amar', handle: 'amar'} ),
-      React.createElement(User, { name: 'Akbar', handle: 'akbar'}),
-      React.createElement(User, { name: 'Anthony', handle: 'anthony'}),
+      [
+        React.createElement(User, { key: 'amar', name: 'Amar', handle: 'amar'} ),
+        React.createElement(User, { key: 'akbar', name: 'Akbar', handle: 'akbar'}),
+        React.createElement(User, { key: 'anthony', name: 'Anthony', handle: 'anthony'}),
+      ]
     )
 }
