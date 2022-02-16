@@ -1,7 +1,7 @@
 const FollowButton = ({ name, isFollowed = false }) => {
     return (
-        <button className="follow-btn" disabled={isFollowed} onClick={() => alert(`Mr. ${name} is followed now!`) }>
-            follow
+        <button className="follow-btn" onClick={() => alert(`Mr. ${name} is ${isFollowed ? 'unfollowed' : 'followed' } now!`) }>
+            { isFollowed ? `unfollow` : `follow` }
         </button>
     )
 }
