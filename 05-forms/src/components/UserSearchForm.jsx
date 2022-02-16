@@ -1,14 +1,16 @@
-import { useState } from "react"
+import { useState, createRef } from "react"
 
 export default function UserSearchForm({ onSearch = () => {} }) {
-    const [ query, setQuery ] = useState("")
+    const searchInputRef = createRef()
+
     return (
-        <form name="user-search" className="user-search">
+        <form name="user-search" className="user-search" onSubmit={(e) => {
+            e.preventDefault()
+            onSearch(searchInputRef.current.value)
+        }}>
             <label className="sr-only" htmlFor="q">Search</label>
-            <input type="text" name="q" id="q" value={query} onChange={(e) => {
-                setQuery(e.target.value)
-                onSearch(e.target.value)
-            }} placeholder="Search a user..." autoComplete="off" />
+            <input ref={searchInputRef} type="text" name="q" id="q" placeholder="Search a user..." autoComplete="off" />
+            <button type="submit">search</button>
         </form>
     )
 }

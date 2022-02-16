@@ -129,6 +129,16 @@ button:disabled {
 }
 
 
+.user-search {
+    position: relative;
+}
+.user-search button {
+    position: relative;
+    top: 0;
+    right: 25px;
+    background-color: rgb(0, 0, 0);
+}
+
 .user-search input {
     padding: 0.5rem 0.8rem;
     background-color: rgba(0, 0, 0, 0.05);
