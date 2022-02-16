@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from './components/Header'
 import UserList from './components/UserList'
 import UserSearchForm from './components/UserSearchForm'
@@ -19,6 +19,10 @@ const UserListTitle = () =>
 const App = () => {
     const [ followedUsers, setFollowedUsers ] = useState([])
     const [ userQuery, setUserQuery ] = useState()
+
+    useEffect(() => {
+        document.title = followedUsers.length ? `Thoughtwell | Following ${followedUsers.length} person(s)` : `Thoughtwell | Following nobody`
+    }, [ followedUsers ])
 
     const handleFollowAction = (isFollowed, user ) => {
         setFollowedUsers(users => {
