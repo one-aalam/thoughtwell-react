@@ -39,7 +39,7 @@ const App = () => {
                         ...user,
                         isFollowed: followedUsers.find(_user => _user.handle === user.handle)
                     })
-                )} onAction={handleFollowAction}>
+                )}>
                 <strong className={`follow-stats ${followedUsers.length ? 'follow-stats--followed': ''}`}>
                     Following: { followedUsers.length ? `${followedUsers.length} person(s)` : 'nobody' }
                 </strong>

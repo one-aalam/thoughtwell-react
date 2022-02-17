@@ -1,6 +1,8 @@
 import FollowButton from "./FollowButton"
+import { useFollowStats } from "../contexts/FollowStatsContext"
 
-export default function User({ user: { name, handle, isFollowed }, onAction }) {
+export default function User({ user: { name, handle, isFollowed } }) {
+    const { handleFollowAction } = useFollowStats()
     return (
         <div className="user-cell">
             <img className="user-cell__avatar" src={`https://avatars.dicebear.com/api/open-peeps/${handle}.svg`} alt={name} />
@@ -13,7 +15,7 @@ export default function User({ user: { name, handle, isFollowed }, onAction }) {
                     <small className="user-cell__status">following ✓</small> :
                     ''
                 } */}
-                <FollowButton user={{ name, handle, isFollowed }} onClick={onAction} />
+                <FollowButton user={{ name, handle, isFollowed }} onClick={handleFollowAction} />
             </div>
         </div>
     )
