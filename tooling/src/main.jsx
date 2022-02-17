@@ -5,7 +5,6 @@ import './styles.css'
 import App from './App'
 import { FollowStatsProvider } from './contexts/FollowStatsContext'
 
-
 ReactDOM.render(
     <React.StrictMode>
         <FollowStatsProvider>
@@ -13,4 +12,4 @@ ReactDOM.render(
         </FollowStatsProvider>
     </React.StrictMode>,
     document.getElementById('app')
-);
+)
