@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint src --ext js,jsx --ignore-path ../.gitignore ."
+    "lint": "eslint src --ext js,jsx --ignore-path ../.gitignore .",
+    "format": "prettier --ignore-path ../.gitignore --write \"**/*.+(js|json)\""
   },
   "main": "src/main.js",
   "repository": {
@@ -26,7 +27,10 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^1.2.0",
     "eslint": "^8.9.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-config-react-app": "^7.0.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1",
     "vite": "^2.8.2",
     "vite-plugin-eslint": "^1.3.0"
   },

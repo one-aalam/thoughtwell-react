@@ -1,3 +1,12 @@
 {
-    "extends": "react-app"
+    "env": {
+        "node": true,
+        "es6": true
+    },
+    "parserOptions": { "ecmaVersion": 8 },
+    "extends": ["react-app", "plugin:prettier/recommended" ],
+    "plugins": ["prettier"],
+    "rules": {
+        "prettier/prettier": "error"
+    }
 }
