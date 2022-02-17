@@ -1,0 +1,33 @@
+{
+  "name": "thoughtwell-react",
+  "version": "1.0.0",
+  "description": "where people connnect on what they're up to...",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "main": "src/main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/one-aalam/thoughtwell-react.git"
+  },
+  "keywords": [
+    "react",
+    "frontend"
+  ],
+  "author": "Aftab Alam",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/one-aalam/thoughtwell-react/issues"
+  },
+  "homepage": "https://github.com/one-aalam/thoughtwell-react#readme",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^1.2.0",
+    "vite": "^2.8.2"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
