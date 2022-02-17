@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Header from './components/Header'
 import UserList from './components/UserList'
 import UserSearchForm from './components/UserSearchForm'
+import FollowStats from './components/FollowStats'
 import useTitleStats from './hooks/useTitleStats'
 import { useFollowStats } from './contexts/FollowStatsContext'
 
@@ -19,7 +20,7 @@ const UserListTitle = () =>
     </React.Fragment>
 
 const App = () => {
-    const { followedUsers, handleFollowAction } = useFollowStats()
+    const { followedUsers } = useFollowStats()
     const [ userQuery, setUserQuery ] = useState()
 
     useTitleStats(followedUsers)
@@ -40,9 +41,7 @@ const App = () => {
                         isFollowed: followedUsers.find(_user => _user.handle === user.handle)
                     })
                 )}>
-                <strong className={`follow-stats ${followedUsers.length ? 'follow-stats--followed': ''}`}>
-                    Following: { followedUsers.length ? `${followedUsers.length} person(s)` : 'nobody' }
-                </strong>
+                <FollowStats/>
                 <br/>
                 <UserListTitle/>
             </UserList>
