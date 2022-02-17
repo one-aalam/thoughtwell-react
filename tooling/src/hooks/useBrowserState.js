@@ -7,7 +7,7 @@ const useBrowserState = (key = `state`, initValue = []) => {
 
     useEffect(() => {
         localStorage.setItem(`${STATE_PREFIX}_${key}`, JSON.stringify(value))
-    }, [ value ])
+    }, [ key, value ])
 
     return [ value, setValue ]
 }
