@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint --max-warnings=0 src"
+    "lint": "eslint src --ext js,jsx --ignore-path ../.gitignore ."
   },
   "main": "src/main.js",
   "repository": {
