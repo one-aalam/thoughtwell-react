@@ -7,12 +7,6 @@ import FollowStats from './components/FollowStats'
 import useTitleStats from './hooks/useTitleStats'
 import { useFollowStats } from './contexts/FollowStatsContext'
 
-const USERS = [
-    { name: 'Amar', handle: 'amar', isFollowed: false },
-    { name: 'Akbar', handle: 'akbar', isFollowed: false },
-    { name: 'Anthony', handle: 'anthony', isFollowed: false },
-]
-
 const UserListTitle = () => (
     <React.Fragment>
         Wanna be <strong>friends</strong> with?
@@ -24,13 +18,19 @@ const UserListTitle = () => (
 )
 
 const App = () => {
+    const [users, setUsers] = useState([])
+    const [usersLoading, setUsersLoading] = useState(true)
+
     const { followedUsers } = useFollowStats()
     const [userQuery, setUserQuery] = useState()
 
     useTitleStats(followedUsers)
 
     useEffect(() => {
-        $fetch(`/api/todos/1`).then((json) => console.log(json))
+        $fetch(`/api/people`).then((json) => {
+            setUsers(json)
+            setUsersLoading(false)
+        })
     }, [])
 
     const handleSearch = (query) => setUserQuery(query)
@@ -39,24 +39,29 @@ const App = () => {
         <div className="container">
             <Header />
             <UserSearchForm onSearch={handleSearch} />
-            <UserList
-                users={(userQuery
-                    ? USERS.filter(
-                          (user) =>
-                              user.name.toLowerCase().indexOf(userQuery) !== -1
-                      )
-                    : USERS
-                ).map((user) => ({
-                    ...user,
-                    isFollowed: followedUsers.find(
-                        (_user) => _user.handle === user.handle
-                    ),
-                }))}
-            >
-                <FollowStats />
-                <br />
-                <UserListTitle />
-            </UserList>
+            {usersLoading ? (
+                'loading user recommendations...'
+            ) : (
+                <UserList
+                    users={(userQuery
+                        ? users.filter(
+                              (user) =>
+                                  user.name.toLowerCase().indexOf(userQuery) !==
+                                  -1
+                          )
+                        : users
+                    ).map((user) => ({
+                        ...user,
+                        isFollowed: followedUsers.find(
+                            (_user) => _user.handle === user.handle
+                        ),
+                    }))}
+                >
+                    <FollowStats />
+                    <br />
+                    <UserListTitle />
+                </UserList>
+            )}
         </div>
     )
 }

@@ -9,6 +9,7 @@ export default defineConfig({
         outDir: '../dist',
         emptyOutDir: true,
     },
+    publicDir: '../public',
     server: {
         proxy: {
             '/api': {
