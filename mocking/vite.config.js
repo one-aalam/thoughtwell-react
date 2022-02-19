@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import eslintPlugin from 'vite-plugin-eslint'
-import mix from 'vite-plugin-mix'
+import mix, { vercelAdapter } from 'vite-plugin-mix'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -20,6 +20,7 @@ export default defineConfig({
         eslintPlugin(),
         mix({
             handler: 'src/api/handler.js',
+            adapter: vercelAdapter(),
         }),
     ],
 })
