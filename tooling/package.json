@@ -7,7 +7,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint src --ext js,jsx --ignore-path ../.gitignore .",
-    "format": "prettier --ignore-path ../.gitignore --write \"src/**/*.+(js|jsx|json)\""
+    "format": "prettier --ignore-path ../.gitignore --write \"src/**/*.+(js|jsx|json)\"",
+    "prepare": "husky install"
   },
   "main": "src/main.js",
   "repository": {
@@ -30,6 +31,8 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-react-app": "^7.0.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.4",
     "prettier": "^2.5.1",
     "vite": "^2.8.2",
     "vite-plugin-eslint": "^1.3.0"
@@ -37,5 +40,8 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": "eslint --cache --fix"
   }
 }
