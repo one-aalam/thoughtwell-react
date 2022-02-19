@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { $fetch } from 'ohmyfetch'
 import Header from './components/Header'
 import UserList from './components/UserList'
 import UserSearchForm from './components/UserSearchForm'
@@ -29,9 +30,9 @@ const App = () => {
     useTitleStats(followedUsers)
 
     useEffect(() => {
-        fetch(`https://jsonplaceholder.typicode.com/todos/1`)
-            .then((response) => response.json())
-            .then((json) => console.log(json))
+        $fetch(`https://jsonplaceholder.typicode.com/todos/1`).then((json) =>
+            console.log(json)
+        )
     }, [])
 
     const handleSearch = (query) => setUserQuery(query)
