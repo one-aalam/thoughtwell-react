@@ -30,9 +30,7 @@ const App = () => {
     useTitleStats(followedUsers)
 
     useEffect(() => {
-        $fetch(`https://jsonplaceholder.typicode.com/todos/1`).then((json) =>
-            console.log(json)
-        )
+        $fetch(`/api/todos/1`).then((json) => console.log(json))
     }, [])
 
     const handleSearch = (query) => setUserQuery(query)
