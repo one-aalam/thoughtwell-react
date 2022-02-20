@@ -6,6 +6,7 @@ import UserSearchForm from './components/UserSearchForm'
 import FollowStats from './components/FollowStats'
 import useTitleStats from './hooks/useTitleStats'
 import { useFollowStats } from './contexts/FollowStatsContext'
+import ErrorBoundary from './components/ErrorBoundary'
 
 const UserListTitle = () => (
     <React.Fragment>
@@ -27,7 +28,7 @@ const App = () => {
     useTitleStats(followedUsers)
 
     useEffect(() => {
-        $fetch(`/api/people`).then((json) => {
+        $fetch(`${import.meta.env.VITE_API_URL}/api/people`).then((json) => {
             setUsers(json)
             setUsersLoading(false)
         })
@@ -38,30 +39,34 @@ const App = () => {
     return (
         <div className="container">
             <Header />
-            <UserSearchForm onSearch={handleSearch} />
-            {usersLoading ? (
-                'loading user recommendations...'
-            ) : (
-                <UserList
-                    users={(userQuery
-                        ? users.filter(
-                              (user) =>
-                                  user.name.toLowerCase().indexOf(userQuery) !==
-                                  -1
-                          )
-                        : users
-                    ).map((user) => ({
-                        ...user,
-                        isFollowed: followedUsers.find(
-                            (_user) => _user.handle === user.handle
-                        ),
-                    }))}
-                >
-                    <FollowStats />
-                    <br />
-                    <UserListTitle />
-                </UserList>
-            )}
+            <ErrorBoundary>
+                <UserSearchForm onSearch={handleSearch} />
+
+                {usersLoading ? (
+                    'loading user recommendations...'
+                ) : (
+                    <UserList
+                        users={(userQuery
+                            ? users.filter(
+                                  (user) =>
+                                      user.name
+                                          .toLowerCase()
+                                          .indexOf(userQuery) !== -1
+                              )
+                            : users
+                        ).map((user) => ({
+                            ...user,
+                            isFollowed: followedUsers.find(
+                                (_user) => _user.handle === user.handle
+                            ),
+                        }))}
+                    >
+                        <FollowStats />
+                        <br />
+                        <UserListTitle />
+                    </UserList>
+                )}
+            </ErrorBoundary>
         </div>
     )
 }

@@ -5,7 +5,7 @@ export default function UserSearchForm({ onSearch = () => {} }) {
     const searchInputRef = createRef()
 
     useEffect(() => {
-        searchInputRef.current.focus()
+        searchInputRef.current && searchInputRef.current.focus()
     })
 
     return (
