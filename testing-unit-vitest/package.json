@@ -7,7 +7,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint src --ext js,jsx --ignore-path ../.gitignore .",
-    "format": "prettier --ignore-path ../.gitignore --write \"src/**/*.+(js|jsx|json)\""
+    "format": "prettier --ignore-path ../.gitignore --write \"src/**/*.+(js|jsx|json)\"",
+    "test": "vitest"
   },
   "main": "src/main.js",
   "repository": {
@@ -32,9 +33,11 @@
     "eslint-plugin-prettier": "^4.0.0",
     "msw": "^0.36.8",
     "prettier": "^2.5.1",
+    "react-test-renderer": "^17.0.2",
     "vite": "^2.8.2",
     "vite-plugin-eslint": "^1.3.0",
-    "vite-plugin-mix": "^0.3.1"
+    "vite-plugin-mix": "^0.3.1",
+    "vitest": "^0.4.1"
   },
   "dependencies": {
     "ohmyfetch": "^0.4.15",

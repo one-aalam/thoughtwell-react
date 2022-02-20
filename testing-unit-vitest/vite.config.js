@@ -23,4 +23,7 @@ export default defineConfig({
             adapter: vercelAdapter(),
         }),
     ],
+    test: {
+        globals: true,
+    }
 })
