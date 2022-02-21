@@ -14,7 +14,7 @@ export default function UserSearchForm({ onSearch = () => {} }) {
             className="user-search"
             onSubmit={(e) => {
                 e.preventDefault()
-                onSearch(searchInputRef.current.value)
+                onSearch(searchInputRef.current.value || '')
             }}
         >
             <label className="sr-only" htmlFor="q">
