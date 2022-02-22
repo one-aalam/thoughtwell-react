@@ -1,7 +1,7 @@
 import renderer, { act } from 'react-test-renderer'
 import { USERS } from '../mocks/fixtures/users'
 import UserList from './UserList'
-import User from '../components/User'
+import User from './User'
 
 test('UserList is rendered with no records', () => {
     const testRenderer = renderer.create(<UserList />)
