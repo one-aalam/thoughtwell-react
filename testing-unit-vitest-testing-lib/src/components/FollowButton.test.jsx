@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import { default as userEvent } from '@testing-library/user-event'
 import { vi } from 'vitest'
 import FollowButton from './FollowButton'
 import { USERS } from '../mocks/fixtures/users'
@@ -13,10 +14,10 @@ describe('FollowButton', () => {
         // expect(followBtn).toHaveTextContent('follow') // not this
         expect(followBtn.innerHTML).toEqual('follow') // but, this!
 
-        fireEvent.click(followBtn)
+        userEvent.click(followBtn)
         expect(followBtn.innerHTML).toEqual('unfollow')
 
-        fireEvent.click(followBtn)
+        userEvent.click(followBtn)
         expect(followBtn.innerHTML).toEqual('follow')
     })
 
@@ -32,14 +33,14 @@ describe('FollowButton', () => {
 
         const followBtn = screen.getByRole('button')
 
-        fireEvent.click(followBtn)
+        userEvent.click(followBtn)
         expect(onClick).toHaveBeenCalledTimes(1)
         expect(onClick).toHaveBeenCalledWith(true, {
             name,
             handle,
         })
 
-        fireEvent.click(followBtn)
+        userEvent.click(followBtn)
         expect(onClick).toHaveBeenCalledTimes(2)
         expect(onClick).toHaveBeenCalledWith(false, {
             name,

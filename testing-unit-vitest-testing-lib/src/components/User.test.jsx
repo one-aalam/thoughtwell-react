@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import { default as userEvent } from '@testing-library/user-event'
 import { vi } from 'vitest'
 import User from './User'
 import { USERS } from '../mocks/fixtures/users'
@@ -36,7 +37,7 @@ describe('User', () => {
             </FollowStatsContext.Provider>
         )
 
-        fireEvent.click(screen.getByRole('button'))
+        userEvent.click(screen.getByRole('button'))
         expect(followUnfollowFunc).toHaveBeenCalledTimes(1)
         expect(followUnfollowFunc).toHaveBeenCalledWith(true, {
             name,

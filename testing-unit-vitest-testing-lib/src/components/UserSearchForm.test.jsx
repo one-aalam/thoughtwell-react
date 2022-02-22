@@ -1,5 +1,7 @@
 import '@testing-library/jest-dom'
 import { render, screen, fireEvent, cleanup } from '@testing-library/react'
+import { default as userEvent } from '@testing-library/user-event'
+
 import { vi } from 'vitest'
 import UserSearchForm from './UserSearchForm'
 
@@ -18,9 +20,7 @@ describe('UserSearchForm', () => {
     test('reflects the values provided by the user', () => {
         render(<UserSearchForm />)
 
-        fireEvent.change(screen.getByLabelText('Search'), {
-            target: { value: 'typed in this...' },
-        })
+        userEvent.type(screen.getByLabelText('Search'), 'typed in this...')
         expect(screen.getByLabelText('Search').value).toEqual(
             'typed in this...'
         )
@@ -39,9 +39,7 @@ describe('UserSearchForm', () => {
         const onSearch = vi.fn()
         render(<UserSearchForm onSearch={onSearch} />)
 
-        fireEvent.change(screen.getByLabelText('Search'), {
-            target: { value: 'typed in this...' },
-        })
+        userEvent.type(screen.getByLabelText('Search'), 'typed in this...')
         fireEvent.submit(screen.getByRole('form'))
         expect(onSearch).toHaveBeenCalled()
         expect(onSearch).toHaveBeenCalledWith('typed in this...')
