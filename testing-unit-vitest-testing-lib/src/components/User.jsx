@@ -4,7 +4,7 @@ import { useFollowStats } from '../contexts/FollowStatsContext'
 export default function User({ user: { name, handle, isFollowed } }) {
     const { handleFollowAction } = useFollowStats()
     return (
-        <div className="user-cell">
+        <div className="user-cell" role="listitem">
             <img
                 className="user-cell__avatar"
                 src={`https://avatars.dicebear.com/api/open-peeps/${handle}.svg`}
