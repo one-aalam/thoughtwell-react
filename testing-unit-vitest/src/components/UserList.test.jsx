@@ -24,7 +24,7 @@ test('UserList is rendered with correct count of childrens(User)', () => {
 
     // With single
     act(() => {
-        testRenderer = testRenderer.update(<UserList users={[USERS[0]]} />)
+        testRenderer.update(<UserList users={[USERS[0]]} />)
     })
     expect(testInstance.findAllByType(User).length).toEqual(1)
 })
@@ -39,7 +39,7 @@ test('UserList is rendered with correct values of childrens(User)', () => {
     expect(allUserInstances[2].props).toEqual({ user: USERS[2] })
     // With single
     act(() => {
-        testRenderer = testRenderer.update(<UserList users={[USERS[0]]} />)
+        testRenderer.update(<UserList users={[USERS[0]]} />)
     })
     expect(testInstance.findAllByType(User)[0].props).toEqual({
         user: USERS[0],

@@ -43,7 +43,7 @@ const App = () => {
                 <UserSearchForm onSearch={handleSearch} />
 
                 {usersLoading ? (
-                    'loading user recommendations...'
+                    <em className="loader">loading user recommendations...</em>
                 ) : (
                     <UserList
                         users={(userQuery
