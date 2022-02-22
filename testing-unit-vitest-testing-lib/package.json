@@ -1,0 +1,51 @@
+{
+  "name": "thoughtwell-react",
+  "version": "1.0.0",
+  "description": "where people connnect on what they're up to...",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext js,jsx --ignore-path ../.gitignore .",
+    "format": "prettier --ignore-path ../.gitignore --write \"src/**/*.+(js|jsx|json)\"",
+    "test": "vitest"
+  },
+  "main": "src/main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/one-aalam/thoughtwell-react.git"
+  },
+  "keywords": [
+    "react",
+    "frontend"
+  ],
+  "author": "Aftab Alam",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/one-aalam/thoughtwell-react/issues"
+  },
+  "homepage": "https://github.com/one-aalam/thoughtwell-react#readme",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^1.2.0",
+    "eslint": "^8.9.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-react-app": "^7.0.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "happy-dom": "^2.39.1",
+    "msw": "^0.36.8",
+    "prettier": "^2.5.1",
+    "react-test-renderer": "^17.0.2",
+    "vite": "^2.8.2",
+    "vite-plugin-eslint": "^1.3.0",
+    "vite-plugin-mix": "^0.3.1",
+    "vitest": "^0.4.1"
+  },
+  "dependencies": {
+    "ohmyfetch": "^0.4.15",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "msw": {
+    "workerDirectory": "public"
+  }
+}
