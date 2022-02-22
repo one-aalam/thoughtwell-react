@@ -1,7 +1,9 @@
 import '@testing-library/jest-dom'
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
+import { vi } from 'vitest'
 import User from './User'
 import { USERS } from '../mocks/fixtures/users'
+import FollowStatsContext from '../contexts/FollowStatsContext'
 
 describe('User', () => {
     test('renders user correctly', () => {
@@ -18,5 +20,27 @@ describe('User', () => {
 
         expect(screen.getByRole('button')).toBeInTheDocument()
         expect(screen.getByRole('button')).toHaveTextContent('follow')
+    })
+
+    test('is able to communicate user status change', () => {
+        const followUnfollowFunc = vi.fn(() => {})
+        const { name, handle } = USERS[0]
+        render(
+            <FollowStatsContext.Provider
+                value={{
+                    followedUsers: [],
+                    handleFollowAction: followUnfollowFunc,
+                }}
+            >
+                <User user={{ name, handle, isFollowed: false }} />
+            </FollowStatsContext.Provider>
+        )
+
+        fireEvent.click(screen.getByRole('button'))
+        expect(followUnfollowFunc).toHaveBeenCalledTimes(1)
+        expect(followUnfollowFunc).toHaveBeenCalledWith(true, {
+            name,
+            handle,
+        })
     })
 })
