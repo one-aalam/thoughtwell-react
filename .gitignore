@@ -3,3 +3,4 @@ dist
 build
 .vercel_build_output
 __snapshots__
+coverage

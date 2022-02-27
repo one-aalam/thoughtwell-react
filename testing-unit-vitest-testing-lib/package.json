@@ -8,7 +8,8 @@
     "preview": "vite preview",
     "lint": "eslint src --ext js,jsx --ignore-path ../.gitignore .",
     "format": "prettier --ignore-path ../.gitignore --write \"src/**/*.+(js|jsx|json)\"",
-    "test": "vitest"
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "main": "src/main.js",
   "repository": {
