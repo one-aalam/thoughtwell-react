@@ -2,7 +2,7 @@ import logoSvg from '../favicon.svg'
 
 export default function Header() {
     return (
-        <div className="header">
+        <div role="banner" className="header">
             <img src={logoSvg} alt={'logo'} width={60} />
             <h1>
                 <span>thought</span>
