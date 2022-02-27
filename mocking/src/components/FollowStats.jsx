@@ -4,6 +4,7 @@ const FollowStats = () => {
     const { followedUsers } = useFollowStats()
     return (
         <strong
+            data-testid="follow-stats"
             className={`follow-stats ${
                 followedUsers.length ? 'follow-stats--followed' : ''
             }`}
