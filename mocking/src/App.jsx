@@ -28,10 +28,12 @@ const App = () => {
     useTitleStats(followedUsers)
 
     useEffect(() => {
-        $fetch(`${import.meta.env.VITE_API_URL || ''}/api/people`).then((json) => {
-            setUsers(json)
-            setUsersLoading(false)
-        })
+        $fetch(`${import.meta.env.VITE_API_URL || ''}/api/people`).then(
+            (json) => {
+                setUsers(json)
+                setUsersLoading(false)
+            }
+        )
     }, [])
 
     const handleSearch = (query) => setUserQuery(query)
