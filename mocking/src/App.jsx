@@ -28,7 +28,7 @@ const App = () => {
     useTitleStats(followedUsers)
 
     useEffect(() => {
-        $fetch(`${import.meta.env.VITE_API_URL}/api/people`).then((json) => {
+        $fetch(`${import.meta.env.VITE_API_URL || ''}/api/people`).then((json) => {
             setUsers(json)
             setUsersLoading(false)
         })
